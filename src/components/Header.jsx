@@ -9,7 +9,10 @@ const Header = () => (
       <Navbar.Header>
         <Navbar.Brand>
           <a href="#home">
-            <img src={logo} alt="Chennai Acco" />
+            <span>
+              <img src={logo} alt="Chennai Acco" />
+            </span>
+            <span className="text-white">&nbsp;&nbsp;Chennai Acco</span>
           </a>
         </Navbar.Brand>
         <Navbar.Toggle />

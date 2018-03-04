@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './components/Header';
 import Banner from './components/Banner';
 import Featured from './components/Featured';
+import Footer from './components/Footer';
 
 import './assets/css/font-awesome.min.css';
 import './assets/css/font-awesome-animation.min.css';
@@ -28,6 +29,7 @@ class App extends Component {
         <Header />
         <Banner />
         <Featured />
+        <Footer />
       </div>
     );
   }

@@ -2,6 +2,8 @@ import React from 'react';
 import { gql } from 'apollo-boost';
 import { Query } from 'react-apollo';
 
+import FeaturedItem from './FeaturedItem';
+
 const GET_PROPERTIES = gql`
   query {
     properties {
@@ -10,6 +12,9 @@ const GET_PROPERTIES = gql`
       description
       rate
       currency
+      photos {
+        filePath
+      }
     }
   }
 `;
@@ -22,9 +27,13 @@ const FeaturedQuery = () => (
       if (error) return <div>Error</div>;
 
       return (
-        <ul>
-          {data.properties.map(item => <li key={item._id}>{item.name}</li>)}
-        </ul>
+        <div className="row">
+          <FeaturedItem colClass="col-md-6 col-sm-6" data={data.properties[0]} />
+          <FeaturedItem colClass="col-md-6 col-sm-6" data={data.properties[1]} />
+          <FeaturedItem colClass="col-md-4 col-sm-4" data={data.properties[2]} />
+          <FeaturedItem colClass="col-md-4 col-sm-4" data={data.properties[3]} />
+          <FeaturedItem colClass="col-md-4 col-sm-4" data={data.properties[4]} />
+        </div>
       );
     }}
   </Query>
