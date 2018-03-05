@@ -1,8 +1,5 @@
-import React, { Component } from 'react';
-import Header from './components/Header/Header';
-import Banner from './components/Banner/Banner';
-import Featured from './components/Featured/Featured';
-import Footer from './components/Footer/Footer';
+import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import './assets/css/font-awesome.min.css';
 import './assets/css/font-awesome-animation.min.css';
@@ -10,29 +7,16 @@ import './App.css';
 import './assets/css/responsive.css';
 import './assets/css/color-skin/default.css';
 
-class App extends Component {
-  componentDidMount() {
-    document.addEventListener('scroll', () => {
-      const isTop = window.scrollY < 100;
-      const header = document.getElementsByTagName('header')[0];
-      if (isTop) {
-        header.classList.remove('scrolled');
-      } else {
-        header.classList.add('scrolled');
-      }
-    });
-  }
+import Home from './pages/Home/Home';
+import Home2 from './pages/Home/Home2';
 
-  render() {
-    return (
-      <div>
-        <Header />
-        <Banner />
-        <Featured />
-        <Footer />
-      </div>
-    );
-  }
-}
+const App = () => (
+  <Router>
+    <div>
+      <Route exact path="/" component={Home} />
+      <Route exact path="/home2" component={Home2} />
+    </div>
+  </Router>
+);
 
 export default App;
