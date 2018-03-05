@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Header from './components/Header';
-import Banner from './components/Banner';
-import Featured from './components/Featured';
-import Footer from './components/Footer';
+import Header from './components/Header/Header';
+import Banner from './components/Banner/Banner';
+import Featured from './components/Featured/Featured';
+import Footer from './components/Footer/Footer';
 
 import './assets/css/font-awesome.min.css';
 import './assets/css/font-awesome-animation.min.css';

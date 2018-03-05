@@ -1,9 +1,9 @@
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
 
-import Banner1 from '../assets/images/banner-slide1.jpg';
-import Banner2 from '../assets/images/banner-slide2.jpg';
-import Banner3 from '../assets/images/banner-slide3.jpg';
+import Banner1 from '../../assets/images/banner-slide1.jpg';
+import Banner2 from '../../assets/images/banner-slide2.jpg';
+import Banner3 from '../../assets/images/banner-slide3.jpg';
 
 const Banner = () => (
   <div className="banner overlay">
