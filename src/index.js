@@ -10,8 +10,8 @@ import registerServiceWorker from './registerServiceWorker';
 /* eslint-disable react/jsx-filename-extension */
 
 const client = new ApolloClient({
-  uri: 'http://localhost:3001/graphql',
-  // uri: 'https://chennai-acco-server.herokuapp.com/graphql',
+  // uri: 'http://localhost:3001/graphql',
+  uri: 'https://chennai-acco-server.herokuapp.com/graphql',
 });
 
 ReactDOM.render(
