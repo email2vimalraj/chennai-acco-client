@@ -31,7 +31,7 @@ const Header2 = () => (
     <Navbar collapseOnSelect>
       <Navbar.Header>
         <Navbar.Brand>
-          <a href="#home">
+          <a href="/">
             <span className="logo1">
               <span><img src={logo1} alt="Chennai Acco" /></span>
               <span className="text-white">&nbsp;&nbsp;Chennai Acco</span>
@@ -46,16 +46,16 @@ const Header2 = () => (
       </Navbar.Header>
 
       <Nav pullRight>
-        <NavItem eventKey={1} href="#">
+        <NavItem eventKey={1} href="/">
           Home
         </NavItem>
-        <NavItem eventKey={2} href="#">
+        <NavItem eventKey={2} href="/propertylist">
           Properties
         </NavItem>
-        <NavItem eventKey={3} href="#">
+        <NavItem eventKey={3} href="/">
           Contact
         </NavItem>
-        <NavItem className="nav-btn" href="#contact">
+        <NavItem className="nav-btn" href="/">
           <i className="fa fa-phone" /> +91 11111 11111
         </NavItem>
       </Nav>

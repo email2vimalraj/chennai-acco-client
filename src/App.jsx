@@ -7,14 +7,18 @@ import './App.css';
 import './assets/css/responsive.css';
 import './assets/css/color-skin/default.css';
 
-import Home from './pages/Home/Home';
 import Home2 from './pages/Home/Home2';
+import PropertyList from './pages/Property/PropertyList';
+import Header2 from './components/Header/Header2';
+import Footer from './components/Footer/Footer';
 
 const App = () => (
   <Router>
     <div>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/home2" component={Home2} />
+      <Header2 />
+      <Route exact path="/" component={Home2} />
+      <Route exact path="/propertylist" component={PropertyList} />
+      <Footer />
     </div>
   </Router>
 );
