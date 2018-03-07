@@ -6,12 +6,13 @@ import FeaturedItem from './FeaturedItem';
 
 const GET_PROPERTIES = gql`
   query {
-    properties {
+    properties(descSortBy: "rating", limit: 5) {
       _id
       name
       description
-      rate
+      price
       currency
+      rating
       photos {
         filePath
       }

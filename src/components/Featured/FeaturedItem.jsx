@@ -14,7 +14,7 @@ const FeaturedItem = ({ colClass, data }) => (
           <span>Chennai</span>
         </div>
         <div className="price-tag price">
-          {data.currency} {data.rate}
+          {data.currency} {data.price}
         </div>
       </div>
 
