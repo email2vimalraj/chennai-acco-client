@@ -23,7 +23,7 @@ const PropertyContainer = ({ data }) => (
           <p>{data.description}</p>
         </div>
 
-        <a href="#dummy" className="btn btn-success faa-parent animated-hover">
+        <a href={`/property/${data._id}`} className="btn btn-success faa-parent animated-hover">
           View Details <i className="fa fa-long-arrow-right faa-passing" />
         </a>
       </div>

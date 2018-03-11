@@ -17,10 +17,6 @@ class Header2 extends React.Component {
     });
   }
 
-  componentWillUnmount() {
-    document.removeEventListener('scroll');
-  }
-
   render() {
     return (
       <header className="style2">

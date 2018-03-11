@@ -9,6 +9,7 @@ import './assets/css/color-skin/default.css';
 
 import Home2 from './pages/Home/Home2';
 import PropertyList from './pages/Property/PropertyList';
+import PropertyItem from './pages/Property/PropertyItem';
 import Header2 from './components/Header/Header2';
 import Footer from './components/Footer/Footer';
 
@@ -18,6 +19,7 @@ const App = () => (
       <Header2 />
       <Route exact path="/" component={Home2} />
       <Route exact path="/propertylist" component={PropertyList} />
+      <Route path="/property/:id" component={PropertyItem} />
       <Footer />
     </div>
   </Router>

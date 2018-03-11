@@ -1,9 +1,9 @@
 import React from 'react';
-import { Carousel } from 'react-bootstrap';
 
 import Banner1 from '../../assets/images/banner-slide1.jpg';
 import Banner2 from '../../assets/images/banner-slide2.jpg';
 import Banner3 from '../../assets/images/banner-slide3.jpg';
+import ImageSlider from './ImageSlider';
 
 const Banner = () => (
   <div className="banner overlay">
@@ -27,17 +27,7 @@ const Banner = () => (
       </div>
     </div>
 
-    <Carousel controls={false}>
-      <Carousel.Item>
-        <img src={Banner1} alt="" />
-      </Carousel.Item>
-      <Carousel.Item>
-        <img src={Banner2} alt="" />
-      </Carousel.Item>
-      <Carousel.Item>
-        <img src={Banner3} alt="" />
-      </Carousel.Item>
-    </Carousel>
+    <ImageSlider images={[Banner1, Banner2, Banner3]} controls={false} />
   </div>
 );
 
