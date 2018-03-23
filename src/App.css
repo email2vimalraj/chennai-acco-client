@@ -4047,6 +4047,7 @@ ul.gallery-full img {
 .property-submit {}
 
 .property-submit input[type="text"],
+.property-submit input[type="number"],
 .property-submit select,
 .property-submit textarea,
 .inputfile-6 + label,

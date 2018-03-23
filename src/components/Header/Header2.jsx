@@ -34,8 +34,6 @@ class Header2 extends React.Component {
               <div className="col-md-6 col-sm-6 col-xs-7">
                 <ul className="header-links pull-right">
                   <li><a href="#dummy">About Us</a></li>
-                  <li><a href="#dummy" className="modal-login" data-toggle="modal" data-target=".myModal">Login</a></li>
-                  <li><a href="#dummy" className="modal-register" data-toggle="modal" data-target=".myModal">Register </a></li>
                 </ul>
               </div>
             </div>

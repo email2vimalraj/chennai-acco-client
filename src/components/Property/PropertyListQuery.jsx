@@ -1,28 +1,8 @@
 import React from 'react';
-import { gql } from 'apollo-boost';
 import { Query } from 'react-apollo';
 
 import PropertyContainer from './PropertyContainer';
-
-const GET_PROPERTIES = gql`
-  query {
-    properties {
-      _id
-      name
-      description
-      price
-      currency
-      rating
-      area
-      bathroomCount
-      bedroomCount
-      accomadatesCount
-      photos {
-        filePath
-      }
-    }
-  }
-`;
+import { GET_PROPERTIES } from '../../queries';
 
 const PropertyListQuery = () => (
   <Query query={GET_PROPERTIES}>
