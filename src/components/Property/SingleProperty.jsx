@@ -3,10 +3,6 @@ import { gql } from 'apollo-boost';
 import { Query } from 'react-apollo';
 import ImageSlider from '../Banner/ImageSlider';
 
-import Banner1 from '../../assets/images/banner-slide1.jpg';
-import Banner2 from '../../assets/images/banner-slide2.jpg';
-import Banner3 from '../../assets/images/banner-slide3.jpg';
-
 const GET_PROPERTY = gql`
   query getProperty($id: String) {
     property(id: $id) {

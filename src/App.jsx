@@ -11,6 +11,7 @@ import Home2 from './pages/Home/Home2';
 import PropertyList from './pages/Property/PropertyList';
 import PropertyItem from './pages/Property/PropertyItem';
 import AddProperty from './pages/Property/AddProperty';
+import AddPhoto from './pages/Property/AddPhoto';
 import Header2 from './components/Header/Header2';
 import Footer from './components/Footer/Footer';
 
@@ -22,6 +23,7 @@ const App = () => (
       <Route exact path="/propertylist" component={PropertyList} />
       <Route path="/property/:id" component={PropertyItem} />
       <Route path="/addproperty" component={AddProperty} />
+      <Route path="/addphoto/:propertyId" component={AddPhoto} />
       <Footer />
     </div>
   </Router>

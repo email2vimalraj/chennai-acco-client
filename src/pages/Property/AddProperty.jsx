@@ -32,7 +32,7 @@ class AddProperty extends React.Component {
     });
   }
 
-  formOnCompleted = data => (
+  formOnCompleted = (data) => {
     this.setState({
       formSubmitted: true,
       formError: '',
@@ -48,8 +48,11 @@ class AddProperty extends React.Component {
       address: '',
       latitude: '',
       longitude: '',
-    })
-  )
+    });
+    const propertyId = data.addProperty._id;
+
+    this.props.history.push(`/addphoto/${propertyId}`);
+  }
 
   formOnError = error => (
     this.setState({
@@ -266,7 +269,7 @@ class AddProperty extends React.Component {
                     </div>
                   </div>
 
-                  <button type="reset" onClick={e => this.formSubmit(e, addProperty)} className="btn btn-success btn-lg shadow faa-parent animated-hover">
+                  <button type="button" onClick={e => this.formSubmit(e, addProperty)} className="btn btn-success btn-lg shadow faa-parent animated-hover">
                     Submit Property <i className="fa fa-long-arrow-right faa-passing" />
                   </button>
                 </form>
