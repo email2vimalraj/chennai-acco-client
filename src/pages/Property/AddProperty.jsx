@@ -3,6 +3,7 @@ import { Mutation } from 'react-apollo'
 import { Alert } from 'react-bootstrap'
 
 import { ADD_PROPERTY } from '../../queries'
+import { AUTH_USER_ID, AUTH_TOKEN, AUTH_USER_ROLE } from '../../constants'
 
 class AddProperty extends React.Component {
   state = {
@@ -20,6 +21,15 @@ class AddProperty extends React.Component {
     address: '',
     latitude: '',
     longitude: ''
+  }
+
+  componentWillMount() {
+    if (
+      localStorage.getItem(AUTH_TOKEN) &&
+      localStorage.getItem(AUTH_USER_ROLE) !== 'ADMIN'
+    ) {
+      this.props.history.push('/')
+    }
   }
 
   handleInputChange = e => {
@@ -91,7 +101,11 @@ class AddProperty extends React.Component {
           address,
           latitude,
           longitude,
-          user: '5a9c42e933de673073171f33'
+          user: {
+            connect: {
+              id: localStorage.getItem(AUTH_USER_ID)
+            }
+          }
         }
       }
     })

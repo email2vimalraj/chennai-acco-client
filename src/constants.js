@@ -1,0 +1,5 @@
+export const AUTH_TOKEN = 'auth-token'
+export const AUTH_USER_NAME = 'auth-user-name'
+export const AUTH_USER_ID = 'auth-user-id'
+export const AUTH_USER_EMAIL = 'auth-user-email'
+export const AUTH_USER_ROLE = 'auth-user-role'

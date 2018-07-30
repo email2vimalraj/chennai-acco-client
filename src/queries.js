@@ -1,7 +1,7 @@
 import { gql } from 'apollo-boost'
 
 export const ADD_PROPERTY = gql`
-  mutation addProperty($input: PropertyInput!) {
+  mutation addProperty($input: PropertyCreateInput!) {
     addProperty(input: $input) {
       id
     }
@@ -34,6 +34,20 @@ export const SIGNUP = gql`
       user {
         name
         email
+      }
+    }
+  }
+`
+
+export const LOGIN = gql`
+  mutation login($email: String!, $password: String!) {
+    login(email: $email, password: $password) {
+      token
+      user {
+        id
+        email
+        name
+        role
       }
     }
   }

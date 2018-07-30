@@ -10,7 +10,7 @@ import registerServiceWorker from './registerServiceWorker'
 /* eslint-disable react/jsx-filename-extension */
 
 const client = new ApolloClient({
-  uri: `${process.env.REACT_APP_SERVER_HOST}`
+  uri: `${process.env.REACT_APP_SERVER_HOST}/graphql`
 })
 
 ReactDOM.render(

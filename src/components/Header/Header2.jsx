@@ -3,6 +3,7 @@ import { Navbar, Nav, NavItem } from 'react-bootstrap'
 
 import logo1 from '../../assets/images/logo-brand-white.png'
 import logo2 from '../../assets/images/logo-brand-green.png'
+import { AUTH_TOKEN, AUTH_USER_NAME, AUTH_USER_ROLE } from '../../constants'
 
 class Header2 extends React.Component {
   componentDidMount() {
@@ -15,6 +16,11 @@ class Header2 extends React.Component {
         header.classList.add('scrolled')
       }
     })
+  }
+
+  onLogout = () => {
+    localStorage.removeItem(AUTH_TOKEN)
+    localStorage.removeItem(AUTH_USER_NAME)
   }
 
   render() {
@@ -38,9 +44,44 @@ class Header2 extends React.Component {
 
               <div className="col-md-6 col-sm-6 col-xs-7">
                 <ul className="header-links pull-right">
+                  {localStorage.getItem(AUTH_TOKEN) && (
+                    <li>
+                      <span>
+                        Welcome, {localStorage.getItem(AUTH_USER_NAME)}
+                      </span>
+                    </li>
+                  )}
+
                   <li>
                     <a href="#dummy">About Us</a>
                   </li>
+
+                  {!localStorage.getItem(AUTH_TOKEN) && (
+                    <li>
+                      <a href="/login">Login</a>
+                    </li>
+                  )}
+
+                  {!localStorage.getItem(AUTH_TOKEN) && (
+                    <li>
+                      <a href="/signup">Signup</a>
+                    </li>
+                  )}
+
+                  {localStorage.getItem(AUTH_TOKEN) &&
+                    localStorage.getItem(AUTH_USER_ROLE) === 'ADMIN' && (
+                      <li>
+                        <a href="/addproperty">Add Property</a>
+                      </li>
+                    )}
+
+                  {localStorage.getItem(AUTH_TOKEN) && (
+                    <li>
+                      <a href="/" onClick={this.onLogout}>
+                        Logout
+                      </a>
+                    </li>
+                  )}
                 </ul>
               </div>
             </div>
