@@ -6,7 +6,7 @@ import ImageSlider from '../Banner/ImageSlider'
 const GET_PROPERTY = gql`
   query getProperty($id: String) {
     property(id: $id) {
-      _id
+      id
       name
       description
       price

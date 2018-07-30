@@ -21,7 +21,7 @@ const PropertyListQuery = () => (
           </div>
 
           {data.properties.map(item => (
-            <PropertyContainer key={item._id} data={item} />
+            <PropertyContainer key={item.id} data={item} />
           ))}
         </div>
       )

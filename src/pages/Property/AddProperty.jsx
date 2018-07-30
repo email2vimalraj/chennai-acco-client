@@ -49,7 +49,7 @@ class AddProperty extends React.Component {
       latitude: '',
       longitude: ''
     })
-    const propertyId = data.addProperty._id
+    const propertyId = data.addProperty.id
 
     this.props.history.push(`/addphoto/${propertyId}`)
   }

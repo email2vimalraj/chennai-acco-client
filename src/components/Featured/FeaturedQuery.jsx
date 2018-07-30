@@ -6,8 +6,8 @@ import FeaturedItem from './FeaturedItem'
 
 const GET_PROPERTIES = gql`
   query {
-    properties(descSortBy: "rating", limit: 5) {
-      _id
+    properties(orderBy: rating_DESC, first: 5) {
+      id
       name
       description
       price
@@ -29,26 +29,13 @@ const FeaturedQuery = () => (
 
       return (
         <div className="row">
-          <FeaturedItem
-            colClass="col-md-6 col-sm-6"
-            data={data.properties[0]}
-          />
-          <FeaturedItem
-            colClass="col-md-6 col-sm-6"
-            data={data.properties[1]}
-          />
-          <FeaturedItem
-            colClass="col-md-4 col-sm-4"
-            data={data.properties[2]}
-          />
-          <FeaturedItem
-            colClass="col-md-4 col-sm-4"
-            data={data.properties[3]}
-          />
-          <FeaturedItem
-            colClass="col-md-4 col-sm-4"
-            data={data.properties[4]}
-          />
+          {data.properties.map(item => (
+            <FeaturedItem
+              colClass="col-md-6 col-sm-6"
+              key={item.id}
+              data={item}
+            />
+          ))}
         </div>
       )
     }}

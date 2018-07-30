@@ -31,7 +31,7 @@ const PropertyContainer = ({ data }) => (
         </div>
 
         <a
-          href={`/property/${data._id}`}
+          href={`/property/${data.id}`}
           className="btn btn-success faa-parent animated-hover"
         >
           View Details <i className="fa fa-long-arrow-right faa-passing" />

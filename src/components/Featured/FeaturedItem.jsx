@@ -4,11 +4,14 @@ import PropTypes from 'prop-types'
 const FeaturedItem = ({ colClass, data }) => (
   <div className={colClass}>
     <div className="featured-wrap mb-30">
-      <a href="#dummy" className="link-overlay">
+      <a href={`/property/${data.id}`} className="link-overlay">
         &nbsp;
       </a>
       <span className="tag left text-uppercase bg-dark">featured</span>
-      <a href="#dummy" className="tag right text-uppercase bg-blue">
+      <a
+        href={`/property/${data.id}`}
+        className="tag right text-uppercase bg-blue"
+      >
         for rent
       </a>
 
@@ -22,9 +25,11 @@ const FeaturedItem = ({ colClass, data }) => (
         </div>
       </div>
 
-      <figure className="image-effect overlay">
-        <img src={data.photos[0].filePath} alt={data.description} />
-      </figure>
+      {data.photos.length > 0 && (
+        <figure className="image-effect overlay">
+          <img src={data.photos[0].filePath} alt={data.description} />
+        </figure>
+      )}
     </div>
   </div>
 )
