@@ -27,3 +27,14 @@ export const GET_PROPERTIES = gql`
     }
   }
 `
+
+export const SIGNUP = gql`
+  mutation signup($name: String!, $email: String!, $password: String!) {
+    signup(data: { name: $name, email: $email, password: $password }) {
+      user {
+        name
+        email
+      }
+    }
+  }
+`

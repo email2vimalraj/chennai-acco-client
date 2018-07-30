@@ -14,6 +14,8 @@ import AddProperty from './pages/Property/AddProperty'
 import AddPhoto from './pages/Property/AddPhoto'
 import Header2 from './components/Header/Header2'
 import Footer from './components/Footer/Footer'
+import Login from './pages/Login/Login'
+import Signup from './pages/Login/Signup'
 
 const App = () => (
   <Router>
@@ -24,6 +26,8 @@ const App = () => (
       <Route path="/property/:id" component={PropertyItem} />
       <Route path="/addproperty" component={AddProperty} />
       <Route path="/addphoto/:propertyId" component={AddPhoto} />
+      <Route path="/login" component={Login} />
+      <Route path="/signup" component={Signup} />
       <Footer />
     </div>
   </Router>

@@ -3994,6 +3994,8 @@ ul.gallery-full img {
 .property-submit {}
 
 .property-submit input[type="text"],
+.property-submit input[type="email"],
+.property-submit input[type="password"],
 .property-submit input[type="number"],
 .property-submit select,
 .property-submit textarea,
@@ -4099,4 +4101,15 @@ ul.gallery-full img {
     top: 4px;
     border: 1px solid #a9a9a9;
     background-color: #fff;
+}
+
+.invalid-feedback {
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #dc3545;
+}
+
+.invalid-input {
+    border-color: #dc3545 !important;
 }
