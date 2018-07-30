@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const Footer = () => (
   <footer>
@@ -12,16 +12,24 @@ const Footer = () => (
           <div className="col-md-6 col-sm-6">
             <ul className="social-icons pull-right">
               <li>
-                <a href="#dummy"><i className="fa fa-facebook" /></a>
+                <a href="#dummy">
+                  <i className="fa fa-facebook" />
+                </a>
               </li>
               <li>
-                <a href="#dummy"><i className="fa fa-twitter" /></a>
+                <a href="#dummy">
+                  <i className="fa fa-twitter" />
+                </a>
               </li>
               <li>
-                <a href="#dummy"><i className="fa fa-instagram " /></a>
+                <a href="#dummy">
+                  <i className="fa fa-instagram " />
+                </a>
               </li>
               <li>
-                <a href="#dummy"><i className="fa fa-linkedin" /></a>
+                <a href="#dummy">
+                  <i className="fa fa-linkedin" />
+                </a>
               </li>
             </ul>
           </div>
@@ -29,6 +37,6 @@ const Footer = () => (
       </div>
     </div>
   </footer>
-);
+)
 
-export default Footer;
+export default Footer

@@ -1,20 +1,20 @@
-import React from 'react';
-import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import React from 'react'
+import { Navbar, Nav, NavItem } from 'react-bootstrap'
 
-import logo1 from '../../assets/images/logo-brand-white.png';
-import logo2 from '../../assets/images/logo-brand-green.png';
+import logo1 from '../../assets/images/logo-brand-white.png'
+import logo2 from '../../assets/images/logo-brand-green.png'
 
 class Header2 extends React.Component {
   componentDidMount() {
     document.addEventListener('scroll', () => {
-      const isTop = window.scrollY < 100;
-      const header = document.getElementsByTagName('header')[0];
+      const isTop = window.scrollY < 100
+      const header = document.getElementsByTagName('header')[0]
       if (isTop) {
-        header.classList.remove('scrolled');
+        header.classList.remove('scrolled')
       } else {
-        header.classList.add('scrolled');
+        header.classList.add('scrolled')
       }
-    });
+    })
   }
 
   render() {
@@ -26,14 +26,21 @@ class Header2 extends React.Component {
               <div className="col-md-6 col-sm-6 col-xs-5 header-info">
                 <span className="hidden-xs">
                   <i className="fa fa-map-marker" />
-                  &nbsp;123 Third Street Fifth Avenue, Greams Road, Chennai, Tamil Nadu, India
+                  &nbsp;123 Third Street Fifth Avenue, Greams Road, Chennai,
+                  Tamil Nadu, India
                 </span>
-                <span className="visible-xs"> <i className="fa fa-map-marker" /> <a href="#dummy"> View location</a> </span>
+                <span className="visible-xs">
+                  {' '}
+                  <i className="fa fa-map-marker" />{' '}
+                  <a href="#dummy"> View location</a>{' '}
+                </span>
               </div>
 
               <div className="col-md-6 col-sm-6 col-xs-7">
                 <ul className="header-links pull-right">
-                  <li><a href="#dummy">About Us</a></li>
+                  <li>
+                    <a href="#dummy">About Us</a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -45,12 +52,18 @@ class Header2 extends React.Component {
             <Navbar.Brand>
               <a href="/">
                 <span className="logo1">
-                  <span><img src={logo1} alt="Chennai Acco" /></span>
+                  <span>
+                    <img src={logo1} alt="Chennai Acco" />
+                  </span>
                   <span className="text-white">&nbsp;&nbsp;Chennai Acco</span>
                 </span>
                 <span className="logo2">
-                  <span><img src={logo2} alt="Chennai Acco" /></span>
-                  <span style={{ color: '#27ae60' }}>&nbsp;&nbsp;Chennai Acco</span>
+                  <span>
+                    <img src={logo2} alt="Chennai Acco" />
+                  </span>
+                  <span style={{ color: '#27ae60' }}>
+                    &nbsp;&nbsp;Chennai Acco
+                  </span>
                 </span>
               </a>
             </Navbar.Brand>
@@ -73,8 +86,8 @@ class Header2 extends React.Component {
           </Nav>
         </Navbar>
       </header>
-    );
+    )
   }
 }
 
-export default Header2;
+export default Header2

@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 
-import Banner1 from '../../assets/images/banner-slide1.jpg';
-import Banner2 from '../../assets/images/banner-slide2.jpg';
-import Banner3 from '../../assets/images/banner-slide3.jpg';
-import ImageSlider from './ImageSlider';
+import Banner1 from '../../assets/images/banner-slide1.jpg'
+import Banner2 from '../../assets/images/banner-slide2.jpg'
+import Banner3 from '../../assets/images/banner-slide3.jpg'
+import ImageSlider from './ImageSlider'
 
 const Banner = () => (
   <div className="banner overlay">
@@ -20,7 +20,9 @@ const Banner = () => (
             </div>
 
             <div className="form-group">
-              <button type="submit">Search <i className="fa fa-long-arrow-right" /></button>
+              <button type="submit">
+                Search <i className="fa fa-long-arrow-right" />
+              </button>
             </div>
           </form>
         </div>
@@ -29,6 +31,6 @@ const Banner = () => (
 
     <ImageSlider images={[Banner1, Banner2, Banner3]} controls={false} />
   </div>
-);
+)
 
-export default Banner;
+export default Banner

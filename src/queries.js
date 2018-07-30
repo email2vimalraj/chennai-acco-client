@@ -1,4 +1,4 @@
-import { gql } from 'apollo-boost';
+import { gql } from 'apollo-boost'
 
 export const ADD_PROPERTY = gql`
   mutation addProperty($input: PropertyInput!) {
@@ -6,7 +6,7 @@ export const ADD_PROPERTY = gql`
       _id
     }
   }
-`;
+`
 
 export const GET_PROPERTIES = gql`
   query {
@@ -26,4 +26,4 @@ export const GET_PROPERTIES = gql`
       }
     }
   }
-`;
+`

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const SearchBar = () => (
   <div className="filter-bar pri-pad-b">
@@ -51,6 +51,6 @@ const SearchBar = () => (
       </div>
     </div>
   </div>
-);
+)
 
-export default SearchBar;
+export default SearchBar

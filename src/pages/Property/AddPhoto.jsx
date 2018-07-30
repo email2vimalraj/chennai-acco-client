@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'
 
 async function asyncForEach(array, callback) {
   for (let index = 0; index < array.length; index++) {
-    await callback(array[index], index, array);
+    await callback(array[index], index, array)
   }
 }
 
@@ -13,90 +13,97 @@ class AddPhoto extends React.Component {
     isUploadStarted: false,
     isUploadCompleted: false,
     countOfUploads: 0,
-    uploadFailures: [],
-  };
+    uploadFailures: []
+  }
 
   handleImageFileChange = (e, idx) => {
-    e.preventDefault();
+    e.preventDefault()
 
     const updatedFile = this.state.images.map((image, sidx) => {
-      if (idx !== sidx) return image;
-      return { ...image, file: e.target.files[0] };
-    });
+      if (idx !== sidx) return image
+      return { ...image, file: e.target.files[0] }
+    })
     this.setState({
-      images: updatedFile,
-    });
+      images: updatedFile
+    })
   }
 
   handleImageNameChange = (e, idx) => {
-    e.preventDefault();
+    e.preventDefault()
     const updatedName = this.state.images.map((image, sidx) => {
-      if (idx !== sidx) return image;
-      return { ...image, name: e.target.value };
-    });
+      if (idx !== sidx) return image
+      return { ...image, name: e.target.value }
+    })
     this.setState({
-      images: updatedName,
-    });
+      images: updatedName
+    })
   }
 
   handleFeaturedSelect = (e, idx) => {
     const updatedFeatured = this.state.images.map((image, sidx) => {
-      if (idx !== sidx) return { ...image, featured: false };
-      return { ...image, featured: e.target.checked };
-    });
+      if (idx !== sidx) return { ...image, featured: false }
+      return { ...image, featured: e.target.checked }
+    })
     this.setState({
-      images: updatedFeatured,
-    });
+      images: updatedFeatured
+    })
   }
 
-  addOneMoreImage = (e) => {
-    e.preventDefault();
+  addOneMoreImage = e => {
+    e.preventDefault()
     this.setState({
-      images: this.state.images.concat([{ name: '', file: '', featured: false }]),
-    });
+      images: this.state.images.concat([
+        { name: '', file: '', featured: false }
+      ])
+    })
   }
 
-  handleSubmit = async (e) => {
-    e.preventDefault();
-    const { images } = this.state;
+  handleSubmit = async e => {
+    e.preventDefault()
+    const { images } = this.state
     this.setState({
       isUploadStarted: true,
-      count: images.length,
-    });
+      count: images.length
+    })
 
     await asyncForEach(images, async (image, idx) => {
-      const data = new FormData();
-      data.append('file', image.file);
-      data.append('filename', image.name);
-      data.append('propertyId', this.props.match.params.propertyId);
-      const response = await fetch(`${process.env.REACT_APP_SERVER_HOST}/upload`, {
-        method: 'POST',
-        body: data,
-      });
+      const data = new FormData()
+      data.append('file', image.file)
+      data.append('filename', image.name)
+      data.append('propertyId', this.props.match.params.propertyId)
+      const response = await fetch(
+        `${process.env.REACT_APP_SERVER_HOST}/upload`,
+        {
+          method: 'POST',
+          body: data
+        }
+      )
       if (response.status !== 200) {
-        this.state.uploadFailures.push(image.file.name);
+        this.state.uploadFailures.push(image.file.name)
       }
       this.setState({
-        countOfUploads: idx + 1,
-      });
-    });
+        countOfUploads: idx + 1
+      })
+    })
 
     this.setState({
       isUploadStarted: true,
-      isUploadCompleted: true,
-    });
+      isUploadCompleted: true
+    })
   }
 
   showUploadProgress = () => (
     <div>
-      {
-        this.state.isUploadCompleted ?
-          <p>Upload done</p> :
-          <p>Uploading {this.state.countOfUploads} of {this.state.count}</p>
-      }
+      {this.state.isUploadCompleted ? (
+        <p>Upload done</p>
+      ) : (
+        <p>
+          Uploading {this.state.countOfUploads} of {this.state.count}
+        </p>
+      )}
       <p>Failed uploads: {this.state.uploadFailures.join(', ')}</p>
     </div>
-  );
+  )
 
   render() {
     return (
@@ -105,19 +112,35 @@ class AddPhoto extends React.Component {
           <h3 className="mb-30">Add Photos of a Property</h3>
 
           <form className="property-submit">
-            { this.state.images.map((image, idx) => (
+            {this.state.images.map((image, idx) => (
               <div className="row mb-55" key={idx}>
                 <div className="form-group col-sm-4 mb-30">
-                  <input type="file" id={`imagefile-${idx}`} onChange={e => this.handleImageFileChange(e, idx)} />
+                  <input
+                    type="file"
+                    id={`imagefile-${idx}`}
+                    onChange={e => this.handleImageFileChange(e, idx)}
+                  />
                 </div>
                 <div className="form-group col-sm-4 mb-30">
-                  <input type="text" id={`imagename-${idx}`} value={image.name} onChange={e => this.handleImageNameChange(e, idx)} />
+                  <input
+                    type="text"
+                    id={`imagename-${idx}`}
+                    value={image.name}
+                    onChange={e => this.handleImageNameChange(e, idx)}
+                  />
                 </div>
                 <div className="form-group col-sm-4 mb-30">
-                  <input type="radio" name="featured" id="featured" radioGroup="featured" checked={image.featured} onChange={e => this.handleFeaturedSelect(e, idx)} />
+                  <input
+                    type="radio"
+                    name="featured"
+                    id="featured"
+                    radioGroup="featured"
+                    checked={image.featured}
+                    onChange={e => this.handleFeaturedSelect(e, idx)}
+                  />
                 </div>
               </div>
-            )) }
+            ))}
 
             <div className="row mb-55">
               <div className="form-group col-sm-4 mb-30">
@@ -144,15 +167,11 @@ class AddPhoto extends React.Component {
             </div>
           </form>
 
-          {
-            this.state.isUploadStarted && this.showUploadProgress()
-          }
-
+          {this.state.isUploadStarted && this.showUploadProgress()}
         </div>
       </main>
-    );
+    )
   }
-
 }
 
-export default AddPhoto;
+export default AddPhoto

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const PropertySubscriptionForm = () => (
   <div className="alert-message sidebar-form mb-20 ">
@@ -15,6 +15,6 @@ const PropertySubscriptionForm = () => (
       </div>
     </form>
   </div>
-);
+)
 
-export default PropertySubscriptionForm;
+export default PropertySubscriptionForm

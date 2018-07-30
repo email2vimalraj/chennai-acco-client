@@ -1,14 +1,21 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const PropertyContainer = ({ data }) => (
   <div className="property-wrap mb-20">
     <div className="ppt-list list-vw mb-30 featured">
       <figure>
-        <span className="tag left text-uppercase bg-dark">{data.currency} {data.price}</span>
+        <span className="tag left text-uppercase bg-dark">
+          {data.currency} {data.price}
+        </span>
         <span className="tag right text-uppercase primary-bg">for rent</span>
         <a href="#dummy" className="image-effect overlay">
-          <img src={data.photos[0].filePath} alt={data.name} width="349" height="226" />
+          <img
+            src={data.photos[0].filePath}
+            alt={data.name}
+            width="349"
+            height="226"
+          />
         </a>
       </figure>
 
@@ -23,17 +30,30 @@ const PropertyContainer = ({ data }) => (
           <p>{data.description}</p>
         </div>
 
-        <a href={`/property/${data._id}`} className="btn btn-success faa-parent animated-hover">
+        <a
+          href={`/property/${data._id}`}
+          className="btn btn-success faa-parent animated-hover"
+        >
           View Details <i className="fa fa-long-arrow-right faa-passing" />
         </a>
       </div>
 
       <div className="info">
         <ul>
-          <li>Area &nbsp;&nbsp;-&nbsp;&nbsp; <span>{data.area} sqft.</span></li>
-          <li>Bathrooms &nbsp;&nbsp;-&nbsp;&nbsp; <span>{data.bathroomCount}</span> </li>
-          <li>Bedrooms &nbsp;&nbsp;-&nbsp;&nbsp; <span>{data.bedroomCount}</span> </li>
-          <li>Persons &nbsp;&nbsp;-&nbsp;&nbsp; <span>{data.accomadatesCount}</span> </li>
+          <li>
+            Area &nbsp;&nbsp;-&nbsp;&nbsp; <span>{data.area} sqft.</span>
+          </li>
+          <li>
+            Bathrooms &nbsp;&nbsp;-&nbsp;&nbsp;{' '}
+            <span>{data.bathroomCount}</span>{' '}
+          </li>
+          <li>
+            Bedrooms &nbsp;&nbsp;-&nbsp;&nbsp; <span>{data.bedroomCount}</span>{' '}
+          </li>
+          <li>
+            Persons &nbsp;&nbsp;-&nbsp;&nbsp;{' '}
+            <span>{data.accomadatesCount}</span>{' '}
+          </li>
         </ul>
 
         <a href="#dummy" className="btn btn-link pull-right">
@@ -42,10 +62,10 @@ const PropertyContainer = ({ data }) => (
       </div>
     </div>
   </div>
-);
+)
 
 PropertyContainer.propTypes = {
-  data: PropTypes.shape.isRequired,
-};
+  data: PropTypes.shape.isRequired
+}
 
-export default PropertyContainer;
+export default PropertyContainer

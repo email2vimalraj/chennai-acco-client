@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import SearchBar2 from '../../components/SearchBar/SearchBar2';
-import PropertySubscriptionForm from '../../components/Property/PropertySubscriptionForm';
-import SingleProperty from '../../components/Property/SingleProperty';
+import SearchBar2 from '../../components/SearchBar/SearchBar2'
+import PropertySubscriptionForm from '../../components/Property/PropertySubscriptionForm'
+import SingleProperty from '../../components/Property/SingleProperty'
 
 const PropertyItem = ({ match }) => (
   <div>
@@ -21,14 +21,14 @@ const PropertyItem = ({ match }) => (
       </div>
     </section>
   </div>
-);
+)
 
 PropertyItem.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      id: PropTypes.node,
-    }).isRequired,
-  }).isRequired,
-};
+      id: PropTypes.node
+    }).isRequired
+  }).isRequired
+}
 
-export default PropertyItem;
+export default PropertyItem

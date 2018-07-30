@@ -1,5 +1,5 @@
-import React from 'react';
-import FeaturedQuery from './FeaturedQuery';
+import React from 'react'
+import FeaturedQuery from './FeaturedQuery'
 
 const Featured = () => (
   <section className="featured-block pri-pad-b">
@@ -9,9 +9,9 @@ const Featured = () => (
           <div className="main-title text-center">
             <h2>Featured best property deals</h2>
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum has been the industry&#8217;s standard dummy
-                text ever since the 1500s, when an unknown.
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry&#8217;s standard dummy
+              text ever since the 1500s, when an unknown.
             </p>
           </div>
         </div>
@@ -20,6 +20,6 @@ const Featured = () => (
       <FeaturedQuery />
     </div>
   </section>
-);
+)
 
-export default Featured;
+export default Featured

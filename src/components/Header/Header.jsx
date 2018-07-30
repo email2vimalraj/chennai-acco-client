@@ -1,7 +1,7 @@
-import React from 'react';
-import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import React from 'react'
+import { Navbar, Nav, NavItem } from 'react-bootstrap'
 
-import logo from '../../assets/images/logo-brand-white.png';
+import logo from '../../assets/images/logo-brand-white.png'
 
 const Header = () => (
   <header className="style1">
@@ -34,6 +34,6 @@ const Header = () => (
       </Nav>
     </Navbar>
   </header>
-);
+)
 
-export default Header;
+export default Header

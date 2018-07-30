@@ -1,13 +1,13 @@
-import React from 'react';
+import React from 'react'
 
-import Intro from '../Intro/Intro';
-import Featured from '../Featured/Featured';
+import Intro from '../Intro/Intro'
+import Featured from '../Featured/Featured'
 
 const Main2 = () => (
   <main>
     <Intro />
     <Featured />
   </main>
-);
+)
 
-export default Main2;
+export default Main2

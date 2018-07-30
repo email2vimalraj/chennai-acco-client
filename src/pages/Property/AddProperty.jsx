@@ -1,8 +1,8 @@
-import React from 'react';
-import { Mutation } from 'react-apollo';
-import { Alert } from 'react-bootstrap';
+import React from 'react'
+import { Mutation } from 'react-apollo'
+import { Alert } from 'react-bootstrap'
 
-import { ADD_PROPERTY } from '../../queries';
+import { ADD_PROPERTY } from '../../queries'
 
 class AddProperty extends React.Component {
   state = {
@@ -19,20 +19,20 @@ class AddProperty extends React.Component {
     parking: 0,
     address: '',
     latitude: '',
-    longitude: '',
-  };
-
-  handleInputChange = (e) => {
-    const { target } = e;
-    const value = target.type === 'checbox' ? target.checked : target.value;
-    const { name } = target;
-
-    this.setState({
-      [name]: value,
-    });
+    longitude: ''
   }
 
-  formOnCompleted = (data) => {
+  handleInputChange = e => {
+    const { target } = e
+    const value = target.type === 'checbox' ? target.checked : target.value
+    const { name } = target
+
+    this.setState({
+      [name]: value
+    })
+  }
+
+  formOnCompleted = data => {
     this.setState({
       formSubmitted: true,
       formError: '',
@@ -47,22 +47,21 @@ class AddProperty extends React.Component {
       parking: 0,
       address: '',
       latitude: '',
-      longitude: '',
-    });
-    const propertyId = data.addProperty._id;
+      longitude: ''
+    })
+    const propertyId = data.addProperty._id
 
-    this.props.history.push(`/addphoto/${propertyId}`);
+    this.props.history.push(`/addphoto/${propertyId}`)
   }
 
-  formOnError = error => (
+  formOnError = error =>
     this.setState({
       formSubmitted: false,
-      formError: error,
+      formError: error
     })
-  )
 
   formSubmit = async (e, addProperty) => {
-    e.preventDefault();
+    e.preventDefault()
 
     const {
       name,
@@ -75,8 +74,8 @@ class AddProperty extends React.Component {
       area,
       address,
       latitude,
-      longitude,
-    } = this.state;
+      longitude
+    } = this.state
 
     await addProperty({
       variables: {
@@ -92,10 +91,10 @@ class AddProperty extends React.Component {
           address,
           latitude,
           longitude,
-          user: '5a9c42e933de673073171f33',
-        },
-      },
-    });
+          user: '5a9c42e933de673073171f33'
+        }
+      }
+    })
   }
 
   render() {
@@ -113,8 +112,8 @@ class AddProperty extends React.Component {
       latitude,
       longitude,
       formSubmitted,
-      formError,
-    } = this.state;
+      formError
+    } = this.state
 
     return (
       <main className="pri-pad">
@@ -128,78 +127,176 @@ class AddProperty extends React.Component {
           >
             {(addProperty, result) => (
               <div>
-                { formSubmitted && <Alert bsStyle="success">Property Created Successfully</Alert> }
-                { formError && <Alert bsStyle="danger">Unable to create the property!</Alert> }
+                {formSubmitted && (
+                  <Alert bsStyle="success">Property Created Successfully</Alert>
+                )}
+                {formError && (
+                  <Alert bsStyle="danger">Unable to create the property!</Alert>
+                )}
 
                 <form className="property-submit">
                   <div className="row mb-55">
                     <div className="form-group col-sm-4 mb-30">
-                      <label htmlFor="name">Property Title <span>*</span></label>
-                      <input onChange={this.handleInputChange} type="text" id="name" name="name" value={name} />
+                      <label htmlFor="name">
+                        Property Title <span>*</span>
+                      </label>
+                      <input
+                        onChange={this.handleInputChange}
+                        type="text"
+                        id="name"
+                        name="name"
+                        value={name}
+                      />
                     </div>
 
                     <div className="form-group select col-sm-4 mb-30">
-                      <label htmlFor="currency">Currency <span>*</span></label>
-                      <select onChange={this.handleInputChange} name="currency" id="currency" value={currency}>
+                      <label htmlFor="currency">
+                        Currency <span>*</span>
+                      </label>
+                      <select
+                        onChange={this.handleInputChange}
+                        name="currency"
+                        id="currency"
+                        value={currency}
+                      >
                         <option value="INR">INR</option>
                         <option value="USD">USD</option>
                       </select>
                     </div>
 
                     <div className="form-group col-sm-4 mb-30">
-                      <label htmlFor="price">Price <span>*</span></label>
-                      <input onChange={this.handleInputChange} type="number" id="price" name="price" value={price} />
+                      <label htmlFor="price">
+                        Price <span>*</span>
+                      </label>
+                      <input
+                        onChange={this.handleInputChange}
+                        type="number"
+                        id="price"
+                        name="price"
+                        value={price}
+                      />
                     </div>
 
                     <div className="form-group col-sm-12 mb-30">
-                      <label htmlFor="description">Property Description <span>*</span></label>
-                      <textarea name="description" id="description" value={description} onChange={this.handleInputChange} />
+                      <label htmlFor="description">
+                        Property Description <span>*</span>
+                      </label>
+                      <textarea
+                        name="description"
+                        id="description"
+                        value={description}
+                        onChange={this.handleInputChange}
+                      />
                     </div>
                   </div>
 
                   <h6 className="mb-15">Extra Information</h6>
                   <div className="row mb-55">
                     <div className="form-group col-sm-4 mb-30">
-                      <label htmlFor="bedroomCount">No. of Bedrooms <span>*</span></label>
-                      <input onChange={this.handleInputChange} type="number" name="bedroomCount" id="bedroomCount" value={bedroomCount} />
+                      <label htmlFor="bedroomCount">
+                        No. of Bedrooms <span>*</span>
+                      </label>
+                      <input
+                        onChange={this.handleInputChange}
+                        type="number"
+                        name="bedroomCount"
+                        id="bedroomCount"
+                        value={bedroomCount}
+                      />
                     </div>
 
                     <div className="form-group col-sm-4 mb-30">
-                      <label htmlFor="bathroomCount">No. of Bathrooms <span>*</span></label>
-                      <input onChange={this.handleInputChange} type="number" name="bathroomCount" id="bathroomCount" value={bathroomCount} />
+                      <label htmlFor="bathroomCount">
+                        No. of Bathrooms <span>*</span>
+                      </label>
+                      <input
+                        onChange={this.handleInputChange}
+                        type="number"
+                        name="bathroomCount"
+                        id="bathroomCount"
+                        value={bathroomCount}
+                      />
                     </div>
 
                     <div className="form-group col-sm-4 mb-30">
-                      <label htmlFor="accomadatesCount">No. of Accomodates <span>&nbsp;</span></label>
-                      <input onChange={this.handleInputChange} type="number" name="accomadatesCount" id="accomadatesCount" value={accomadatesCount} />
+                      <label htmlFor="accomadatesCount">
+                        No. of Accomodates <span>&nbsp;</span>
+                      </label>
+                      <input
+                        onChange={this.handleInputChange}
+                        type="number"
+                        name="accomadatesCount"
+                        id="accomadatesCount"
+                        value={accomadatesCount}
+                      />
                     </div>
 
                     <div className="form-group col-sm-4 mb-30">
-                      <label htmlFor="area">Area (Sq/ft) <span>&nbsp;</span></label>
-                      <input onChange={this.handleInputChange} type="number" name="area" id="area" value={area} />
+                      <label htmlFor="area">
+                        Area (Sq/ft) <span>&nbsp;</span>
+                      </label>
+                      <input
+                        onChange={this.handleInputChange}
+                        type="number"
+                        name="area"
+                        id="area"
+                        value={area}
+                      />
                     </div>
 
                     <div className="form-group col-sm-4 mb-30">
-                      <label htmlFor="parking">Parking <span>&nbsp;</span></label>
-                      <input onChange={this.handleInputChange} type="number" name="parking" id="parking" value={parking} />
+                      <label htmlFor="parking">
+                        Parking <span>&nbsp;</span>
+                      </label>
+                      <input
+                        onChange={this.handleInputChange}
+                        type="number"
+                        name="parking"
+                        id="parking"
+                        value={parking}
+                      />
                     </div>
                   </div>
 
                   <h6 className="mb-15">Property Location</h6>
                   <div className="row mb-55">
                     <div className="form-group col-sm-4 mb-30">
-                      <label htmlFor="address">Address <span>*</span></label>
-                      <input onChange={this.handleInputChange} type="text" id="address" name="address" value={address} />
+                      <label htmlFor="address">
+                        Address <span>*</span>
+                      </label>
+                      <input
+                        onChange={this.handleInputChange}
+                        type="text"
+                        id="address"
+                        name="address"
+                        value={address}
+                      />
                     </div>
 
                     <div className="form-group col-sm-4 mb-30">
-                      <label htmlFor="latitude">Latitude <span>*</span></label>
-                      <input onChange={this.handleInputChange} type="text" id="latitude" name="latitude" value={latitude} />
+                      <label htmlFor="latitude">
+                        Latitude <span>*</span>
+                      </label>
+                      <input
+                        onChange={this.handleInputChange}
+                        type="text"
+                        id="latitude"
+                        name="latitude"
+                        value={latitude}
+                      />
                     </div>
 
                     <div className="form-group col-sm-4 mb-30">
-                      <label htmlFor="longitude">Longitude <span>*</span></label>
-                      <input onChange={this.handleInputChange} type="text" id="longitude" name="longitude" value={longitude} />
+                      <label htmlFor="longitude">
+                        Longitude <span>*</span>
+                      </label>
+                      <input
+                        onChange={this.handleInputChange}
+                        type="text"
+                        id="longitude"
+                        name="longitude"
+                        value={longitude}
+                      />
                     </div>
 
                     <div className="col-sm-12 mb-30">
@@ -218,59 +315,114 @@ class AddProperty extends React.Component {
                   <div className="row mb-60">
                     <div className="form-group col-sm-12">
                       <div className="checkbox-wrap">
-                        <input onChange={this.handleInputChange} type="checkbox" name="aircondition" id="aircondition" />
+                        <input
+                          onChange={this.handleInputChange}
+                          type="checkbox"
+                          name="aircondition"
+                          id="aircondition"
+                        />
                         <span>Air Conditioning</span>
                       </div>
 
                       <div className="checkbox-wrap">
-                        <input onChange={this.handleInputChange} type="checkbox" name="wardrobe" id="wardrobe" />
+                        <input
+                          onChange={this.handleInputChange}
+                          type="checkbox"
+                          name="wardrobe"
+                          id="wardrobe"
+                        />
                         <span>Wardrobes</span>
                       </div>
 
                       <div className="checkbox-wrap">
-                        <input onChange={this.handleInputChange} type="checkbox" name="clinic" id="clinic" />
+                        <input
+                          onChange={this.handleInputChange}
+                          type="checkbox"
+                          name="clinic"
+                          id="clinic"
+                        />
                         <span>Clinic</span>
                       </div>
 
                       <div className="checkbox-wrap">
-                        <input onChange={this.handleInputChange} type="checkbox" name="internet" id="internet" />
+                        <input
+                          onChange={this.handleInputChange}
+                          type="checkbox"
+                          name="internet"
+                          id="internet"
+                        />
                         <span>Internet</span>
                       </div>
 
                       <div className="checkbox-wrap">
-                        <input onChange={this.handleInputChange} type="checkbox" name="park" id="park" />
+                        <input
+                          onChange={this.handleInputChange}
+                          type="checkbox"
+                          name="park"
+                          id="park"
+                        />
                         <span>Park</span>
                       </div>
 
                       <div className="checkbox-wrap">
-                        <input onChange={this.handleInputChange} type="checkbox" name="school" id="school" />
+                        <input
+                          onChange={this.handleInputChange}
+                          type="checkbox"
+                          name="school"
+                          id="school"
+                        />
                         <span>School</span>
                       </div>
 
                       <div className="checkbox-wrap">
-                        <input onChange={this.handleInputChange} type="checkbox" name="supermarket" id="supermarket" />
+                        <input
+                          onChange={this.handleInputChange}
+                          type="checkbox"
+                          name="supermarket"
+                          id="supermarket"
+                        />
                         <span>Supermarket / Store</span>
                       </div>
 
                       <div className="checkbox-wrap">
-                        <input onChange={this.handleInputChange} type="checkbox" name="transportation" id="transportation" />
+                        <input
+                          onChange={this.handleInputChange}
+                          type="checkbox"
+                          name="transportation"
+                          id="transportation"
+                        />
                         <span>Transportation Hub</span>
                       </div>
 
                       <div className="checkbox-wrap">
-                        <input onChange={this.handleInputChange} type="checkbox" name="cable" id="cable" />
+                        <input
+                          onChange={this.handleInputChange}
+                          type="checkbox"
+                          name="cable"
+                          id="cable"
+                        />
                         <span>Cable TV</span>
                       </div>
 
                       <div className="checkbox-wrap">
-                        <input onChange={this.handleInputChange} type="checkbox" name="fridge" id="fridge" />
+                        <input
+                          onChange={this.handleInputChange}
+                          type="checkbox"
+                          name="fridge"
+                          id="fridge"
+                        />
                         <span>Fridge</span>
                       </div>
                     </div>
                   </div>
 
-                  <button type="button" onClick={e => this.formSubmit(e, addProperty)} className="btn btn-success btn-lg shadow faa-parent animated-hover">
-                    Submit Property <i className="fa fa-long-arrow-right faa-passing" />
+                  <button
+                    type="button"
+                    onClick={e => this.formSubmit(e, addProperty)}
+                    className="btn btn-success btn-lg shadow faa-parent animated-hover"
+                  >
+                    Submit Property{' '}
+                    <i className="fa fa-long-arrow-right faa-passing" />
                   </button>
                 </form>
               </div>
@@ -278,8 +430,8 @@ class AddProperty extends React.Component {
           </Mutation>
         </div>
       </main>
-    );
+    )
   }
 }
 
-export default AddProperty;
+export default AddProperty

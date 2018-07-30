@@ -1,7 +1,7 @@
-import React from 'react';
-import SearchBar2 from '../../components/SearchBar/SearchBar2';
-import PropertySubscriptionForm from '../../components/Property/PropertySubscriptionForm';
-import PropertyListQuery from '../../components/Property/PropertyListQuery';
+import React from 'react'
+import SearchBar2 from '../../components/SearchBar/SearchBar2'
+import PropertySubscriptionForm from '../../components/Property/PropertySubscriptionForm'
+import PropertyListQuery from '../../components/Property/PropertyListQuery'
 
 const PropertyList = () => (
   <div>
@@ -19,6 +19,6 @@ const PropertyList = () => (
       </div>
     </section>
   </div>
-);
+)
 
-export default PropertyList;
+export default PropertyList

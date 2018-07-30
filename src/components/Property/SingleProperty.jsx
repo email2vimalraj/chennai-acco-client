@@ -1,7 +1,7 @@
-import React from 'react';
-import { gql } from 'apollo-boost';
-import { Query } from 'react-apollo';
-import ImageSlider from '../Banner/ImageSlider';
+import React from 'react'
+import { gql } from 'apollo-boost'
+import { Query } from 'react-apollo'
+import ImageSlider from '../Banner/ImageSlider'
 
 const GET_PROPERTY = gql`
   query getProperty($id: String) {
@@ -21,14 +21,14 @@ const GET_PROPERTY = gql`
       }
     }
   }
-`;
+`
 
 const SingleProperty = ({ id }) => (
   <Query query={GET_PROPERTY} variables={{ id }}>
     {({ loading, error, data }) => {
-      if (loading) return <div>Loading...</div>;
+      if (loading) return <div>Loading...</div>
 
-      if (error) return <div>Error...</div>;
+      if (error) return <div>Error...</div>
 
       const {
         name,
@@ -40,21 +40,25 @@ const SingleProperty = ({ id }) => (
         bathroomCount,
         bedroomCount,
         accomadatesCount,
-        photos,
-      } = data.property;
+        photos
+      } = data.property
 
-      const imageFilePaths = photos.map(photo => photo.filePath);
+      const imageFilePaths = photos.map(photo => photo.filePath)
 
       return (
         <div className="col-md-9 col-sm-9 property-single left-block">
           <div className="title mb-20">
             <h2 className="mb-0 lh-normal">{name}</h2>
             <span>Greams Road / Chennai</span>
-            <span className="price primary-bg text-white">{currency} {price}</span>
+            <span className="price primary-bg text-white">
+              {currency} {price}
+            </span>
           </div>
 
           <div className="gallery-wrap thumb-gallery mb-40">
-            <span className="tag left text-uppercase primary-bg text-white">for rent</span>
+            <span className="tag left text-uppercase primary-bg text-white">
+              for rent
+            </span>
 
             <ImageSlider images={imageFilePaths} controls />
           </div>
@@ -77,7 +81,8 @@ const SingleProperty = ({ id }) => (
 
               <div className="right">
                 <div className="form-group">
-                  <textarea defaultValue={`I am interested in this ${name} for
+                  <textarea
+                    defaultValue={`I am interested in this ${name} for
                     rent at Greams Road / Chennai, priced at ${currency} ${price}.`}
                   />
                 </div>
@@ -86,8 +91,8 @@ const SingleProperty = ({ id }) => (
               <div className="right checkbox-wrap">
                 <input type="checkbox" />
                 <span>
-                  I&#8217;m happy to receive emails from Chennai Acco
-                  & specially selected agents.&nbsp;
+                  I&#8217;m happy to receive emails from Chennai Acco &
+                  specially selected agents.&nbsp;
                 </span>
               </div>
 
@@ -131,9 +136,7 @@ const SingleProperty = ({ id }) => (
             <div className="col-sm-8">
               <div className="box border content-wrap mb-0">
                 <h4 className="title mb-20">Property Description</h4>
-                <p>
-                  {description}
-                </p>
+                <p>{description}</p>
               </div>
             </div>
           </div>
@@ -168,9 +171,9 @@ const SingleProperty = ({ id }) => (
             </div>
           </div>
         </div>
-      );
+      )
     }}
   </Query>
-);
+)
 
-export default SingleProperty;
+export default SingleProperty
