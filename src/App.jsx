@@ -21,7 +21,7 @@ const App = () => (
   <Router>
     <div>
       <Header2 />
-      <Route exact path="/" component={Home2} />
+      <Route exact path="/" component={AddProperty} />
       <Route exact path="/propertylist" component={PropertyList} />
       <Route path="/property/:id" component={PropertyItem} />
       <Route path="/addproperty" component={AddProperty} />
